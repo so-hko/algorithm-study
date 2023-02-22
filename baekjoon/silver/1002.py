@@ -11,3 +11,5 @@ for _ in range(n):
         print(2)
     elif abs(r1-r2) > distance or abs(r1+r2) < distance: #교점 0개 (두 원은 서로 밖에 있어서 만나지 않거나 다른원의 내부에 있어서 만나지않을 때)
         print(0)
+
+        
