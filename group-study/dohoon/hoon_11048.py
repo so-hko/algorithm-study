@@ -1,10 +1,10 @@
 n, m = map(int, input().split())
-maze = []               # 사탕 위치 배열
+maze = []               # 사탕 위치 및 개수 배열
 
 for i in range(n):
     maze.append(list(map(int, input().split())))
 
-candy = [[0 for j in range(m+1)] for i in range(n+1)]               # 가져온 사탕 개수 저장
+candy = [[0 for j in range(m+1)] for i in range(n+1)]               # 이동하면서 가져온 사탕 개수 저장할 배열
 
 for i in range(1, n+1):
     for j in range(1, m+1):
