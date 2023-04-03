@@ -128,3 +128,4 @@ public class Solution_BaekJoon_1194 {
 		return x<0 || x>=N || y<0 || y>=M; 
 	}
 }//end of class
+ 
