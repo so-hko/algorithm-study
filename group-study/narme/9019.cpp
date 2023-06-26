@@ -4,7 +4,8 @@
 
 using namespace std;
 
-int funcDslr(int n, int i){
+int funcDslr(int n, int i)
+{
     switch (i)
     {
     case 0:
@@ -22,69 +23,59 @@ int funcDslr(int n, int i){
 
 char dslr[4] = {'D', 'S', 'L', 'R'};
 
-vector<string> answer; 
+vector<string> answer;
 
-void solve(int n1, int n2){
+void solve(int n1, int n2)
+{
     queue<pair<int, string>> q;
     bool visit[10000]{0};
-    bool reverse = true;
     string nroute;
 
     q.push({n1, ""});
 
-    while(true){
+    while (true)
+    {
         int n = q.front().first;
         string route = q.front().second;
         q.pop();
-        if(n == n2){
+        if (n == n2)
+        {
             answer.push_back(route);
             return;
         }
         visit[n] = true;
-        if(!reverse){
-            for(int i = 3; i >= 0; i--){
-                int nn = funcDslr(n, i);
-            
-                if(visit[nn])continue;
-                else visit[nn] = true;
-                nroute = route + dslr[i];
-                if(nn == n2){
-                    answer.push_back(nroute);
-                    return;
-                }
-                q.push({nn, nroute});
+        for (int i = 0; i < 4; i++)
+        {
+            int nn = funcDslr(n, i);
+
+            if (visit[nn])
+                continue;
+            else
+                visit[nn] = true;
+            nroute = route + dslr[i];
+            if (nn == n2)
+            {
+                answer.push_back(nroute);
+                return;
             }
-        }else{
-            for(int i = 0; i < 4; i++){
-                int nn = funcDslr(n, i);
-                
-                if(visit[nn])continue;
-                else visit[nn] = true;
-                nroute = route + dslr[i];
-                if(nn == n2){
-                    answer.push_back(nroute);
-                    return;
-                }
-                q.push({nn, nroute});
-            }
+            q.push({nn, nroute});
         }
-        reverse = !reverse;
     }
 }
 
-
-
-
-int main(){
+int main()
+{
     ios::sync_with_stdio(false);
     cin.tie(nullptr);
     cout.tie(nullptr);
     int t, n1, n2;
 
     cin >> t;
-    for(int i = 0; i < t; i++){
+    for (int i = 0; i < t; i++)
+    {
         cin >> n1 >> n2;
         solve(n1, n2);
     }
-    for(auto i : answer)cout << i << "\n";
+    for (auto i : answer)
+        cout << i << "\n";
 }
