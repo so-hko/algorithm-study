@@ -8,4 +8,4 @@ async def start_ncf():
 
 @ncf.get('/model', tags = ['ncf'])
 async def ncf_model():
-    return {'msg' : 'Here is NCF model'}
+    return {'msg' : 'Here is NCF model'} 
