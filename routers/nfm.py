@@ -9,3 +9,5 @@ async def start_nfm():
 @nfm.get('/model',tags = ['nfm'])
 async def nfm_model():
     return {'msg':'Here is NFM model'}
+
+print("git checkout sohyang--!!!")
